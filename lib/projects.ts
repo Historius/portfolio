@@ -11,7 +11,10 @@ export async function getProjects(): Promise<Project[]> {
   });
   return [
     { title: "Obelisk AI", description: "Clone chat GPT" },
-    { title: "currency-converter", description: "" },
-    { title: "elf-game", description: "javascript game-clicker" },
+    {
+      title: "currency-converter",
+      description: "Displays current exchange rates",
+    },
+    { title: "elf-game", description: "JavaScript game-clicker" },
   ];
 }
