@@ -15,7 +15,7 @@ export async function getProjects(): Promise<Project[]> {
     {
       title: "currency-converter",
       description: "Displays current exchange rates",
-      tech: "React",
+      tech: "JavaScript",
     },
     {
       title: "elf-game",
