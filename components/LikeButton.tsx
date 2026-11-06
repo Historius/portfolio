@@ -6,7 +6,9 @@ export default function LikeButton({ title }: { title: string }) {
 
   return (
     <button
-      onClick={() => setLikes((prev) => prev + 1)}
+      onClick={() => {
+        setLikes((prev) => prev + 1);
+      }}
       aria-label={`Лайк: ${title}`}
     >
       ❤ {likes}
