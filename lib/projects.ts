@@ -10,6 +10,7 @@ export async function getProjects(): Promise<Project[]> {
       resolve([]);
     }, 1000);
   });
+  // throw new Error("Test error");
   return [
     { title: "Obelisk AI", description: "Clone chat GPT", tech: "Next.js" },
     {
