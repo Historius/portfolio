@@ -5,6 +5,7 @@ import NavLink from "@/components/NavLink";
 const links = [
   { href: "/", label: "Projects" },
   { href: "/about", label: "About" },
+  { href: "/dashboard", label: "Dashboard" },
 ];
 
 export default function Nav() {
