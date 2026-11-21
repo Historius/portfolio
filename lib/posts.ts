@@ -17,9 +17,8 @@ export async function getPosts(): Promise<{ posts: Post[]; loadedAt: string }> {
   }
 
   const posts: Post[] = await res.json();
-  return { posts, loadedAt: new Date().toLocaleTimeString("ru-RU") };
+  return { posts, loadedAt: new Date().toISOString() };
 }
-
 export async function getPost(id: string): Promise<Post> {
   "use cache";
   cacheLife("minutes");

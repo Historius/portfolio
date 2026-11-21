@@ -1,7 +1,8 @@
+import { Suspense } from "react";
+import LocalTime from "@/components/LocalTime";
 import Link from "next/link";
 import { getPosts } from "@/lib/posts";
 import type { Metadata } from "next";
-
 export const metadata: Metadata = {
   title: "Posts",
   description: "List of all blog posts",
@@ -19,7 +20,12 @@ export default async function PostsPage() {
           </li>
         ))}
       </ul>
-      <p>Загружено в: {loadedAt}</p>
+      <p>
+        Загруженно в:{" "}
+        <Suspense fallback="…">
+          <LocalTime iso={loadedAt} />
+        </Suspense>
+      </p>
     </main>
   );
 }
