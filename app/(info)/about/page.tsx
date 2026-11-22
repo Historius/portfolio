@@ -14,7 +14,13 @@ export default function About() {
   return (
     <main>
       <h1>About Me</h1>
-      <p>This is the about page of my portfolio.</p>
+      <p>Fullstack developer: TypeScript, React, Next.js, Supabase.</p>
+      <p>
+        I built Obelisk AI — a ChatGPT-like chat with several AI models. My own
+        server route keeps the API key off the browser, answers stream in piece
+        by piece, and chats are saved in Supabase.
+      </p>
+      <p>Looking for a full-time remote position in web development.</p>
     </main>
   );
 }

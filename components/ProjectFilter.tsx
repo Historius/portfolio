@@ -33,6 +33,17 @@ export default function ProjectFilter({ projects }: { projects: Project[] }) {
             <h2>{project.title}</h2>
             <p>{project.description}</p>
             <p>Tech: {project.tech}</p>
+            <p>{project.status}</p>
+            {project.url && (
+              <a href={project.url} target="_blank" rel="noopener noreferrer">
+                Live demo
+              </a>
+            )}
+            {project.repo && (
+              <a href={project.repo} target="_blank" rel="noopener noreferrer">
+                Code
+              </a>
+            )}
             <LikeButton title={project.title} />
           </li>
         ))}

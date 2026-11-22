@@ -3,11 +3,5 @@ export default function InfoLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return (
-    <div className="bg-gray-800 p-2">
-      <h1>Info Section</h1>
-      <p>Info group</p>
-      {children}
-    </div>
-  );
+  return <div className="bg-gray-800 p-2">{children}</div>;
 }
