@@ -50,7 +50,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
             </a>
             <a href="mailto:stets.2033@gmail.com">Email</a>
             <a
-              href="https://www.linkedin.com/in/gideon-undefined-068400268/"
+              href="https://www.linkedin.com/in/serhii-stets-068400268/"
               target="_blank"
               rel="noopener noreferrer"
             >
