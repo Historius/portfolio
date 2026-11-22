@@ -12,8 +12,8 @@ export const metadata: Metadata = {
 
 export default function About() {
   return (
-    <main>
-      <h1>About Me</h1>
+    <main className="space-y-4">
+      <h1 className="mb-6 text-3xl font-bold">About Me</h1>
       <p>Fullstack developer: TypeScript, React, Next.js, Supabase.</p>
       <p>
         I built Obelisk AI — a ChatGPT-like chat with several AI models. My own

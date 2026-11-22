@@ -9,7 +9,7 @@ const links = [
 
 export default function Nav() {
   return (
-    <nav className="flex gap-4">
+    <nav className="mb-8 flex gap-6 border-b border-foreground/20 pb-4">
       {links.map((link) => (
         <Suspense
           key={link.href}

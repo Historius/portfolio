@@ -2,17 +2,24 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
+export default function NavLink({
+  href,
+  label,
+}: {
+  href: string;
+  label: string;
+}) {
+  const pathname = usePathname();
+  const isActive = pathname === href;
 
-export default function NavLink({ href, label }: { href: string; label: string }) {
-    const pathname = usePathname();
-    const isActive = pathname === href;
-
-    return (
-        <Link
-            href={href}
-            className={isActive ? "font-bold underline" : ""}
-        >
-            {label}
-        </Link>
-    );
+  return (
+    <Link
+      href={href}
+      className={
+        isActive ? "font-bold underline" : "opacity-60 hover:opacity-100"
+      }
+    >
+      {label}
+    </Link>
+  );
 }

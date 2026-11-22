@@ -1,7 +1,6 @@
 "use client";
 import { useState } from "react";
 import type { Project } from "@/lib/projects";
-import LikeButton from "@/components/LikeButton";
 
 const filters = ["All", "React", "Next.js", "JavaScript"] as const;
 
@@ -12,7 +11,7 @@ export default function ProjectFilter({ projects }: { projects: Project[] }) {
 
   return (
     <>
-      <div className="flex gap-2">
+      <div className="mb-6 flex flex-wrap gap-2">
         {filters.map((filter) => (
           <button
             key={filter}
@@ -27,24 +26,36 @@ export default function ProjectFilter({ projects }: { projects: Project[] }) {
           </button>
         ))}
       </div>
-      <ul>
+      <ul className="grid gap-4">
         {filtered.map((project) => (
-          <li key={project.title}>
-            <h2>{project.title}</h2>
-            <p>{project.description}</p>
-            <p>Tech: {project.tech}</p>
-            <p>{project.status}</p>
+          <li
+            key={project.title}
+            className="rounded-lg border border-foreground/20 p-4"
+          >
+            <h2 className="text-xl font-semibold">{project.title}</h2>
+            <p className="mt-1 opacity-80">{project.description}</p>
+            <p className="mt-3 text-sm opacity-60">Tech: {project.tech}</p>
+            <p className="text-sm opacity-60">{project.status}</p>
             {project.url && (
-              <a href={project.url} target="_blank" rel="noopener noreferrer">
+              <a
+                className="mr-4 mt-3 inline-block underline"
+                href={project.url}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 Live demo
               </a>
             )}
             {project.repo && (
-              <a href={project.repo} target="_blank" rel="noopener noreferrer">
+              <a
+                className="mr-4 mt-3 inline-block underline"
+                href={project.repo}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 Code
               </a>
             )}
-            <LikeButton title={project.title} />
           </li>
         ))}
       </ul>
