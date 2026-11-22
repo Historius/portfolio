@@ -8,12 +8,6 @@ export interface Project {
 }
 
 export async function getProjects(): Promise<Project[]> {
-  await new Promise<Project[]>((resolve) => {
-    setTimeout(() => {
-      resolve([]);
-    }, 1000);
-  });
-  // throw new Error("Test error");
   return [
     {
       title: "Obelisk AI",
