@@ -11,21 +11,22 @@ export async function getProjects(): Promise<Project[]> {
   return [
     {
       title: "Obelisk AI",
-      description: "ChatGPT-like chat with several AI models",
+      description:
+        "ChatGPT-like chat with several AI models. A server route keeps the API key private, answers stream in real time, chats are stored in Supabase. Auth and public deploy are next.",
       tech: "Next.js",
-      status: "In progress: auth & deploy coming soon",
+      status: "In progress",
     },
     {
-      title: "currency-converter",
-      description: "Displays current exchange rates",
+      title: "Currency Converter",
+      description: "Displays current exchange rates.",
       tech: "JavaScript",
       status: "Completed",
       url: "https://historius.github.io/currency-converter/",
       repo: "https://github.com/Historius/currency-converter",
     },
     {
-      title: "elf-game",
-      description: "JavaScript game-clicker",
+      title: "Elf Game",
+      description: "Clicker game in plain JavaScript.",
       tech: "JavaScript",
       status: "Completed",
       url: "https://historius.github.io/Game/",

@@ -1,6 +1,11 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import {
+  navLinkActive,
+  navLinkBase,
+  navLinkInactive,
+} from "@/lib/nav-styles";
 
 export default function NavLink({
   href,
@@ -15,9 +20,8 @@ export default function NavLink({
   return (
     <Link
       href={href}
-      className={
-        isActive ? "font-bold underline" : "opacity-60 hover:opacity-100"
-      }
+      aria-current={isActive ? "page" : undefined}
+      className={`${navLinkBase} ${isActive ? navLinkActive : navLinkInactive}`}
     >
       {label}
     </Link>

@@ -1,26 +1,91 @@
 @import "tailwindcss";
 
+/* Цвета сайта. Бирюзовый и оранжевый — как на обложке opengraph-image.jpg */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  color-scheme: light;
+  --background: #f8fafc;
+  --foreground: #0b1220;
+  --muted: #5b6475;
+  --card: #ffffff;
+  --border: rgba(15, 23, 42, 0.1);
+  --accent: #0891b2;
+  --accent-2: #ea580c;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    color-scheme: dark;
+    --background: #060912;
+    --foreground: #e8edf5;
+    --muted: #94a0b4;
+    --card: rgba(255, 255, 255, 0.03);
+    --border: rgba(255, 255, 255, 0.09);
+    --accent: #22d3ee;
+    --accent-2: #fb923c;
   }
 }
 
+/* Делаем переменные доступными как классы Tailwind: bg-card, text-muted, border-border… */
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-card: var(--card);
+  --color-border: var(--border);
+  --color-accent: var(--accent);
+  --color-accent-2: var(--accent-2);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --animate-fade-up: fade-up 0.6s ease-out both;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  background: var(--background);
+  /* Два мягких цветных пятна сверху поверх основного фона */
+  background:
+    radial-gradient(
+      60rem 30rem at 10% -10%,
+      color-mix(in oklab, var(--accent) 14%, transparent),
+      transparent 60%
+    ),
+    radial-gradient(
+      50rem 25rem at 100% -5%,
+      color-mix(in oklab, var(--accent-2) 10%, transparent),
+      transparent 60%
+    ),
+    var(--background);
+  background-repeat: no-repeat;
   color: var(--foreground);
   font-family: var(--font-sans);
+}
+
+::selection {
+  background: color-mix(in oklab, var(--accent) 30%, transparent);
+}
+
+/* Уважаем настройку «уменьшить движение» в системе */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  ::before,
+  ::after {
+    animation: none !important;
+    transition: none !important;
+  }
 }

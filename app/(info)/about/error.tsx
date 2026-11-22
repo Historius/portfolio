@@ -1,4 +1,5 @@
 "use client";
+
 export default function ErrorPage({
   error,
   reset,
@@ -7,10 +8,18 @@ export default function ErrorPage({
   reset: () => void;
 }) {
   return (
-    <div>
-      <h2>About page broke!</h2>
-      <p>{error.message}</p>
-      <button onClick={reset}>Try again</button>
+    <div className="py-16 text-center">
+      <h1 className="text-2xl font-semibold tracking-tight">
+        This page failed to load
+      </h1>
+      <p className="mt-2 text-muted">{error.message}</p>
+      <button
+        type="button"
+        onClick={reset}
+        className="mt-8 rounded-full bg-foreground px-5 py-2.5 text-sm font-medium text-background transition-opacity hover:opacity-85"
+      >
+        Try again
+      </button>
     </div>
   );
 }

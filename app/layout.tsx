@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Link from "next/link";
 import Nav from "@/components/Nav";
+import Footer from "@/components/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,34 +32,18 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <div className="mx-auto w-full max-w-3xl px-4 py-8">
-          <Nav />
+        <header className="sticky top-0 z-10 border-b border-border bg-background/70 backdrop-blur-md">
+          <div className="mx-auto flex w-full max-w-5xl items-center justify-between px-4 py-3">
+            <Link href="/" className="font-semibold tracking-tight">
+              Serhii<span className="text-accent">.</span>Stets
+            </Link>
+            <Nav />
+          </div>
+        </header>
+        <div className="mx-auto w-full max-w-5xl flex-1 px-4 py-12">
           {children}
-          <footer className="mt-12 flex flex-wrap gap-4 border-t border-foreground/20 pt-4 text-sm opacity-80">
-            <a
-              href="https://github.com/Historius"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              GitHub
-            </a>
-            <a
-              href="https://t.me/SerGrey2033"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Telegram
-            </a>
-            <a href="mailto:stets.2033@gmail.com">Email</a>
-            <a
-              href="https://www.linkedin.com/in/serhii-stets-068400268/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              LinkedIn
-            </a>
-          </footer>
         </div>
+        <Footer />
       </body>
     </html>
   );

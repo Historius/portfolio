@@ -1,6 +1,7 @@
 import { Suspense } from "react";
 import Link from "next/link";
 import NavLink from "@/components/NavLink";
+import { navLinkBase, navLinkInactive } from "@/lib/nav-styles";
 
 const links = [
   { href: "/", label: "Projects" },
@@ -9,11 +10,18 @@ const links = [
 
 export default function Nav() {
   return (
-    <nav className="mb-8 flex gap-6 border-b border-foreground/20 pb-4">
+    <nav aria-label="Main" className="flex items-center gap-1">
       {links.map((link) => (
         <Suspense
           key={link.href}
-          fallback={<Link href={link.href}>{link.label}</Link>}
+          fallback={
+            <Link
+              href={link.href}
+              className={`${navLinkBase} ${navLinkInactive}`}
+            >
+              {link.label}
+            </Link>
+          }
         >
           <NavLink href={link.href} label={link.label} />
         </Suspense>
